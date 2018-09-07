@@ -9,6 +9,7 @@ import time
 
 msg_info = {}
 
+
 # 缓存私聊消息
 @itchat.msg_register([TEXT, CARD, FRIENDS, PICTURE, RECORDING, VIDEO, ATTACHMENT, SHARING, MAP, NOTE, SYSTEM], isFriendChat=True)
 def handle_download_friendchat(msg):
@@ -74,6 +75,7 @@ def handle_download_friendchat(msg):
         }
     )
 
+
 # 判断私聊的撤回
 @itchat.msg_register(NOTE, isFriendChat=True)
 def handle_recall_friendchat(msg):
@@ -100,6 +102,7 @@ def handle_recall_friendchat(msg):
             itchat.send_video(old_msg['msg_content'], toUserName='filehelper')  # 发送自动下载的视频
 
         msg_info.pop(old_msg_id)
+
 
 # 缓存群聊消息
 @itchat.msg_register([TEXT, CARD, FRIENDS, PICTURE, RECORDING, VIDEO, ATTACHMENT, SHARING, MAP, NOTE, SYSTEM], isGroupChat=True)
@@ -165,6 +168,7 @@ def handle_download_groupchat(msg):
                 }
         }
     )
+
 
 # 判断群聊的撤回
 @itchat.msg_register(NOTE, isGroupChat=True)
