@@ -192,6 +192,7 @@ def handle_recall_groupchat(msg):
 
         msg_info.pop(old_msg_id)
 
+
 if __name__ == '__main__':
     itchat.auto_login(hotReload=True)   # 扫码登录，支持热加载
     itchat.run()
